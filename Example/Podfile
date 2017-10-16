@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HuayingShareLibrary_Example' do
+  pod 'HuayingShareLibrary', :path => '../'
+
+  target 'HuayingShareLibrary_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
