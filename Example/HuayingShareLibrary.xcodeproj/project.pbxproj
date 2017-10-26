@@ -28,10 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		324B4BB6525A5CC9A4872C9E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		324B4BB6525A5CC9A4872C9E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		449AD5C00C971A72ED8A8B31 /* Pods_HuayingShareLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HuayingShareLibrary_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A8E7EF5330819F7A05D864 /* Pods_HuayingShareLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HuayingShareLibrary_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A9BE75B808976AA9DC857DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4A9BE75B808976AA9DC857DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		58C985968456EFADB240189C /* Pods-HuayingShareLibrary_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuayingShareLibrary_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HuayingShareLibrary_Example/Pods-HuayingShareLibrary_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* HuayingShareLibrary_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuayingShareLibrary_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7B39D6A63EB255A682308E08 /* Pods-HuayingShareLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuayingShareLibrary_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HuayingShareLibrary_Example/Pods-HuayingShareLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C86E673F9F9928E434C7AA22 /* Pods-HuayingShareLibrary_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuayingShareLibrary_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HuayingShareLibrary_Tests/Pods-HuayingShareLibrary_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		D5A803DC8A1D48749B44D2C3 /* HuayingShareLibrary.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = HuayingShareLibrary.podspec; path = ../HuayingShareLibrary.podspec; sourceTree = "<group>"; };
+		D5A803DC8A1D48749B44D2C3 /* HuayingShareLibrary.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HuayingShareLibrary.podspec; path = ../HuayingShareLibrary.podspec; sourceTree = "<group>"; };
 		E3F2FBE993F826E1EEB819CC /* Pods-HuayingShareLibrary_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuayingShareLibrary_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HuayingShareLibrary_Tests/Pods-HuayingShareLibrary_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,10 +215,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = MJKEV94P6L;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = MJKEV94P6L;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -454,6 +456,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -499,6 +502,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -508,13 +512,16 @@
 			baseConfigurationReference = 7B39D6A63EB255A682308E08 /* Pods-HuayingShareLibrary_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MJKEV94P6L;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HuayingShareLibrary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -523,13 +530,16 @@
 			baseConfigurationReference = 58C985968456EFADB240189C /* Pods-HuayingShareLibrary_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MJKEV94P6L;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HuayingShareLibrary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -537,6 +547,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C86E673F9F9928E434C7AA22 /* Pods-HuayingShareLibrary_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = MJKEV94P6L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -550,7 +561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -558,6 +569,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E3F2FBE993F826E1EEB819CC /* Pods-HuayingShareLibrary_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = MJKEV94P6L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -567,7 +579,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
