@@ -443,7 +443,7 @@ extension MonkeyKing.Error {
         switch self {
         case .apiRequest(_):
             ///TODO
-            let rea = HuayingShareManager.Error.APIRequestReason.init(type: HuayingShareManager.Error.APIRequestReason.Type.unrecognizedError, responseData: nil)
+            let rea = HuayingShareManager.Error.APIRequestReason.init(type: HuayingShareManager.Error.APIRequestReason.ReasonType.unrecognizedError, responseData: nil)
             return HuayingShareManager.Error.apiRequest(reason: rea)
             
         case .invalidImageData:

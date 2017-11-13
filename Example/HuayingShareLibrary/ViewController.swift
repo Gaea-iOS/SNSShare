@@ -27,7 +27,7 @@ class ViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func changeShare(switcher: UISwitch){
+    @objc func changeShare(switcher: UISwitch){
         
         self.navigationItem.title = switcher.isOn ? "略缩图为图片URL" : "略缩图为图片"
     }

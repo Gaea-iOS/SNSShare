@@ -27,12 +27,12 @@ extension HuayingShareManager {
         case sdk(reason: SDKReason)
         
         public struct APIRequestReason {
-            public enum `Type` {
+            public enum ReasonType {
                 case unrecognizedError
                 case connectFailed
                 case invalidToken
             }
-            public var type: Type
+            public var type: ReasonType
             public var responseData: [String: Any]?
         }
         case apiRequest(reason: APIRequestReason)

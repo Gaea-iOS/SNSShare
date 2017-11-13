@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HuayingShareLibrary'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'ShareOperation for HuayingShareLibrary.'
   s.description      = 'ShareOperation'
   s.homepage         = 'https://github.com/lzc1104/HuayingShareLibrary'
