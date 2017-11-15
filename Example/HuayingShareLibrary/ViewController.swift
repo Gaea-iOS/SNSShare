@@ -50,7 +50,6 @@ class ViewController: UITableViewController {
         let accounts: [HuayingShareManager.Account] = [wechatAccount,qqAccount,weiboAccount]
         accounts.forEach(self.shareManager.registerAccount(_:))
         
-        
     }
     typealias Info = (title: String?, description: String?, thumbnail: HuayingShareManager.ImageType?, media: HuayingShareManager.Media?)
     
