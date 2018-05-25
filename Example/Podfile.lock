@@ -1,11 +1,11 @@
 PODS:
-  - HuayingShareLibrary (0.1.0):
-    - MonkeyKing (~> 1.3.0)
+  - HuayingShareLibrary (0.1.1):
+    - MonkeyKing (~> 1.4.0)
     - SDWebImage
-  - MonkeyKing (1.3.0)
-  - SDWebImage (4.1.0):
-    - SDWebImage/Core (= 4.1.0)
-  - SDWebImage/Core (4.1.0)
+  - MonkeyKing (1.4.2)
+  - SDWebImage (4.3.2):
+    - SDWebImage/Core (= 4.3.2)
+  - SDWebImage/Core (4.3.2)
 
 DEPENDENCIES:
   - HuayingShareLibrary (from `../`)
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HuayingShareLibrary: 26c8dc0edc8e1074e9c2d5dfdb45df7ad390e4a1
-  MonkeyKing: 8e28bc2b2a93f67f8c3fcc08f41809b0e7ef848b
-  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  HuayingShareLibrary: 502c58c2eb90bee4a4bf7e1ce3c53466e6b991d0
+  MonkeyKing: 64846a7ef403806abbffaf333cec72521b39465d
+  SDWebImage: 29bd3c0bc1f01e5eb59720847c64ad4c4ca1af5d
 
 PODFILE CHECKSUM: 7dbc80c37d82ec70f7b475d52ff0581a5d5edc1f
 
