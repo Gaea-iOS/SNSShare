@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HuayingShareLibrary'
-  s.version          = '0.1.1'
+  s.version          = '0.3.2'
   s.summary          = 'ShareOperation for HuayingShareLibrary.'
   s.description      = 'ShareOperation'
   s.homepage         = 'https://github.com/lzc1104/HuayingShareLibrary'
@@ -28,6 +28,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit'
-  s.dependency 'MonkeyKing' ,'~> 1.4.0'
+  s.dependency 'MonkeyKing' ,'~> 1.3.0'
   s.dependency 'SDWebImage'
 end
