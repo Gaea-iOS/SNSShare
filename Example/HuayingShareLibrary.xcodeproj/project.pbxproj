@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		A76D9A4D9A1F85E75090CE32 /* Pods_HuayingShareLibrary_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A8E7EF5330819F7A05D864 /* Pods_HuayingShareLibrary_Example.framework */; };
+		AF2C30B720DCC58F00E50B72 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AF2C30B620DCC58E00E50B72 /* WeiboSDK.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7B39D6A63EB255A682308E08 /* Pods-HuayingShareLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuayingShareLibrary_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HuayingShareLibrary_Example/Pods-HuayingShareLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		AF2C30B620DCC58E00E50B72 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = WeiboSDK.bundle; path = ../HuayingShareLibrary/Classes/libWeiboSDK/WeiboSDK.bundle; sourceTree = "<group>"; };
 		C86E673F9F9928E434C7AA22 /* Pods-HuayingShareLibrary_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuayingShareLibrary_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HuayingShareLibrary_Tests/Pods-HuayingShareLibrary_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A803DC8A1D48749B44D2C3 /* HuayingShareLibrary.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HuayingShareLibrary.podspec; path = ../HuayingShareLibrary.podspec; sourceTree = "<group>"; };
 		E3F2FBE993F826E1EEB819CC /* Pods-HuayingShareLibrary_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuayingShareLibrary_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HuayingShareLibrary_Tests/Pods-HuayingShareLibrary_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				AF2C30B620DCC58E00E50B72 /* WeiboSDK.bundle */,
 				D5A803DC8A1D48749B44D2C3 /* HuayingShareLibrary.podspec */,
 				4A9BE75B808976AA9DC857DC /* README.md */,
 				324B4BB6525A5CC9A4872C9E /* LICENSE */,
@@ -253,6 +256,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				AF2C30B720DCC58F00E50B72 /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +522,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"HuayingShareLibrary\"",
+					"-framework",
+					"\"MonkeyKing\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -536,6 +551,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"HuayingShareLibrary\"",
+					"-framework",
+					"\"MonkeyKing\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

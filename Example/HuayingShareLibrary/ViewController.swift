@@ -119,13 +119,13 @@ class ViewController: UITableViewController {
     }
     
     var wechatImageInfo: Info  {
-        let media = HuayingShareManager.Media.url(URL(string: "www.baidu.com")!)
+        let media = HuayingShareManager.Media.url(URL(string: "https://www.baidu.com")!)
         return (title: "测试", description: "烧鹅饭", thumbnail: HuayingShareManager.ImageType.image(#imageLiteral(resourceName: "bg_tanchuang_logo")), media: media)
     }
     
     var wechatURLInfo: Info  {
-        let imageurl = "https://pic4.zhimg.com/f4c09eb37_xl.jpg"
-        let media = HuayingShareManager.Media.url(URL(string: "www.baidu.com")!)
+        let imageurl = "http://p8wy5w4lm.bkt.clouddn.com/icon_find_2@3x.png"
+        let media = HuayingShareManager.Media.url(URL(string: "https://www.baidu.com")!)
         return (title: "测试", description: "烧鹅饭", thumbnail: HuayingShareManager.ImageType.url(imageurl), media: media)
     }
     

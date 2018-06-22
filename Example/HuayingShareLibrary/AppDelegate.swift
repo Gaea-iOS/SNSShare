@@ -45,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return ShareFucker.shared.handleOpenURL(url)
     }
     
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return ShareFucker.shared.handleOpenURL(url)
+    }
 
 }
 

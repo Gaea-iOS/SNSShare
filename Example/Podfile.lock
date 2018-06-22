@@ -1,5 +1,5 @@
 PODS:
-  - HuayingShareLibrary (0.1.1):
+  - HuayingShareLibrary (0.2.0):
     - MonkeyKing (~> 1.4.0)
     - SDWebImage
   - MonkeyKing (1.4.2)
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HuayingShareLibrary: 502c58c2eb90bee4a4bf7e1ce3c53466e6b991d0
+  HuayingShareLibrary: 671a27e5a88100c9b79acf1b8313ca1607b8c8ef
   MonkeyKing: 64846a7ef403806abbffaf333cec72521b39465d
   SDWebImage: 29bd3c0bc1f01e5eb59720847c64ad4c4ca1af5d
 

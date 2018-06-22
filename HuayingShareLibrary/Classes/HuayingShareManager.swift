@@ -10,13 +10,29 @@ import UIKit
 import MonkeyKing
 import SDWebImage
 
+
+class WeiboSdkDelegation: NSObject, WeiboSDKDelegate {
+    func didReceiveWeiboRequest(_ request: WBBaseRequest!) {
+        
+    }
+    
+    func didReceiveWeiboResponse(_ response: WBBaseResponse!) {
+        print(response)
+        let dict = response.requestUserInfo as? NSDictionary
+        self.receiveResponse?(dict,response.statusCode.rawValue)
+    }
+    
+    var receiveResponse: ((NSDictionary?, Int) -> Void)?
+    
+}
+
 open class HuayingShareManager {
     
     public init() {}
     var accountSet = Set<Account>()
     
     fileprivate var deliverCompletionHandler: DeliverCompletionHandler?
-    
+    private lazy var _weiboDelegation = WeiboSdkDelegation()
     public enum Account: Hashable {
         case weChat(appID: String, appKey: String?)
         case qq(appID: String)
@@ -124,9 +140,15 @@ open class HuayingShareManager {
                 if case .qq = account { self.accountSet.remove(oldAccount) }
             case .weibo:
                 if case .weibo = account { self.accountSet.remove(oldAccount) }
+                
+                
             }
         }
         self.accountSet.insert(account)
+        if case .weibo = account {
+//            WeiboSDK.enableDebugMode(true)
+            WeiboSDK.registerApp(account.appID)
+        }
         MonkeyKing.registerAccount(account.asMonkeyKingAccount())
     }
     
@@ -145,8 +167,91 @@ open class HuayingShareManager {
         return UIApplication.shared.canOpenURL(url)
     }
     
+    private func towbMessage(wbmes: HuayingShareManager.Message.WeiboSubtype ,imageData: Data) -> WBMessageObject {
+        let wbmessage: WBMessageObject = WBMessageObject.message() as! WBMessageObject
+        wbmessage.text = wbmes.info.title
+        if let media = wbmes.info.media {
+            switch media {
+            case .file(let data):
+                //TODO
+                break
+            case .audio(let audioURL, let linkURL):
+                //TODO
+                break
+            case .image(let image):
+                let imagemessage = WBImageObject()
+                imagemessage.add([image])
+                wbmessage.imageObject = imagemessage
+            case .url(let url):
+                let mediamessage = WBWebpageObject()
+                mediamessage.objectID = "identifier1"
+                mediamessage.title = wbmes.info.title
+                mediamessage.description = wbmes.info.description
+                mediamessage.thumbnailData = imageData
+                mediamessage.webpageUrl = url.absoluteString
+                wbmessage.mediaObject = mediamessage
+            case .video(let video):
+                let videoMessage = WBNewVideoObject()
+                videoMessage.addVideo(video)
+                wbmessage.videoObject = videoMessage
+            }
+        }
+        return wbmessage
+    }
+    
     public func deliver(_ message: Message, completionHandler: @escaping DeliverCompletionHandler) {
         
+        if case let .weibo(wbmes) = message,!WeiboSDK.isWeiboAppInstalled() {
+            
+            self._weiboDelegation.receiveResponse = { info ,code in
+                
+                if code == 0 {
+                    completionHandler(.success(nil))
+                } else {
+                    completionHandler(.failure(HuayingShareManager.Error.sdk(reason: HuayingShareManager.Error.SDKReason.cancel)))
+                }
+            }
+            
+            if message.needImageDownload(),
+                let url = message.thumbnilURL() {
+                
+                SDWebImageDownloader.shared()
+                    .downloadImage(
+                        with: url,
+                        options: SDWebImageDownloaderOptions.ignoreCachedResponse, progress: nil) { (thumbImage, _, _, _) in
+                            
+                            let imageData: Data = {
+                                if let _imaeg = thumbImage {
+                                    return UIImageJPEGRepresentation(_imaeg, 0.7) ?? Data()
+                                } else {
+                                    return Data()
+                                }
+                            }()
+                            let wbmessage = self.towbMessage(wbmes: wbmes, imageData: imageData)
+                            _ = WBSendMessageToWeiboRequest.request(withMessage: wbmessage)
+                            
+                            
+                }
+                
+            } else {
+                let imageData: Data = {
+                    if let _imaeg = wbmes.info.thumbnail?.image {
+                        return UIImageJPEGRepresentation(_imaeg, 0.1) ?? Data()
+                    } else {
+                        return Data()
+                    }
+                }()
+                
+                let wbmessage = self.towbMessage(wbmes: wbmes,imageData: imageData)
+                let authRequest = WBAuthorizeRequest()
+                authRequest.scope = "all"
+                let request: WBSendMessageToWeiboRequest = WBSendMessageToWeiboRequest.request(withMessage: wbmessage, authInfo: authRequest, access_token: nil) as! WBSendMessageToWeiboRequest
+                let isok = WeiboSDK.send(request)
+            }
+            return
+        }
+        
+        /// 除了无安装微薄分享以外
         if message.needImageDownload(),
             let url = message.thumbnilURL() {
             
@@ -158,14 +263,18 @@ open class HuayingShareManager {
                         MonkeyKing.deliver(message.asImageInfo(image: img).asMonkeyMessage(), completionHandler: { (result) in
                             completionHandler(result.asShareResult())
                         })
+                         
                     } else {
                         MonkeyKing.deliver(message.asMonkeyMessage(), completionHandler: { (result) in
                             completionHandler(result.asShareResult())
                         })
+                        
                     }
                     
             }
         } else {
+            
+            
             MonkeyKing.deliver(message.asMonkeyMessage(), completionHandler: { (result) in
                 completionHandler(result.asShareResult())
             })
@@ -405,6 +514,13 @@ extension HuayingShareManager {
         
         // Weibo
         if urlScheme.hasPrefix("wb") {
+            
+            if !WeiboSDK.isWeiboAppInstalled() {
+                
+                return WeiboSDK.handleOpen(url, delegate: self._weiboDelegation)
+                
+            }
+            
             let items = UIPasteboard.general.items
             var results = [String: Any]()
             for item in items {
